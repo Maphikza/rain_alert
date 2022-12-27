@@ -5,6 +5,8 @@ from twilio.rest import Client
 api_key = os.environ.get("api_key")
 account_sid = os.environ.get("account_sid")
 auth_token = os.environ.get("auth_token")
+twilio_num = os.environ.get("twilio_num")
+my_num = os.environ.get("my_num")
 
 
 parameters = {
@@ -32,8 +34,8 @@ if rain_check(hourly_data):
     message = client.messages \
                     .create(
                          body="Hey man, Bring an Umbrella. It's about to come down.",
-                         from_='+19592712407',
-                         to='+27615360089'
+                         from_=twilio_num,
+                         to=my_num
                      )
 
     print(message.status)
